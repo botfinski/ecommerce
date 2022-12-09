@@ -16,7 +16,7 @@ export const josefinSans = Josefin_Sans({
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <Box className={josefinSans.className}>
+    <Box>
       <Head>
         <title>Ecommerce</title>
       </Head>

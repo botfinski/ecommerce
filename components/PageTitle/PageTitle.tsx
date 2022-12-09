@@ -1,13 +1,28 @@
 import React from "react"
-import { Box, Typography } from "@mui/material"
+import { Box, Container, Typography } from "@mui/material"
+import { styled, css } from "@mui/system"
 
-interface Props {}
+interface Props {
+  pageTitle: string
+}
 
-const PageTitle: React.FC<Props> = () => {
+const Wrapper = styled(Box)`
+  height: 286px;
+  display: flex;
+  align-items: center;
+  ${props =>
+    css`
+      background-color: ${props.theme.palette.primary["50"]};
+    `};
+`
+
+const PageTitle: React.FC<Props> = ({ pageTitle }) => {
   return (
-    <Box>
-      <Typography variant="h1">Page Title</Typography>
-    </Box>
+    <Wrapper>
+      <Container maxWidth="xl">
+        <Typography variant="h1">{pageTitle}</Typography>
+      </Container>
+    </Wrapper>
   )
 }
 

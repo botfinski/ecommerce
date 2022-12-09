@@ -1,5 +1,8 @@
 import React from "react"
-import { Box, Container } from "@mui/material"
+import { Box, Button, Container } from "@mui/material"
+import NavMenu from "../NavMenu/NavMenu"
+import Cart from "../Cart/Cart"
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined"
 
 interface Props {}
 
@@ -8,34 +11,47 @@ const Header: React.FC<Props> = () => {
     <header>
       <Box
         sx={{
-          color: "#fff",
+          height: 44,
+          color: "custom.white",
           backgroundColor: "primary.main",
+          display: "flex",
+          alignItems: "center",
+          address: {
+            fontStyle: "normal",
+            "> *:not(:last-child)": {
+              marginRight: "50px",
+            },
+          },
         }}
       >
-        <Container maxWidth="xl">
+        <Container
+          maxWidth="xl"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <address>
-            <span>sdfsdf</span>
-            <a href="tel:123-456-7890">123-456-7890</a>
+            <a href="#">lorem@ipsum.com</a>
+            <a href="#">123-456-7890</a>
           </address>
+          <Button
+            color="secondary"
+            endIcon={<PersonOutlineOutlinedIcon />}
+            sx={{
+              color: "custom.white",
+              textTransform: "capitalize",
+              marginLeft: "auto",
+            }}
+          >
+            Account
+          </Button>
+          <Cart />
         </Container>
       </Box>
       <Container maxWidth="xl">
-        <nav>
-          <ul>
-            <li>
-              <a href="#">Logo</a>
-            </li>
-            <li>
-              <a href="#">Products</a>
-            </li>
-            <li>
-              <a href="#">Blog</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
-          </ul>
-        </nav>
+        <NavMenu type="header" />
       </Container>
     </header>
   )

@@ -15,6 +15,7 @@ export interface IProduct {
   name: string
   slug: string
   price: number
+  previousPrice: number
   colors: string[]
   quantity: number
   rating: number
@@ -22,4 +23,5 @@ export interface IProduct {
   longDescription: string
   reviews: string[]
   details: string[]
+  photos: string[]
 }
