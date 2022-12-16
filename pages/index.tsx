@@ -12,6 +12,7 @@ export default function Home() {
 		<>
 			<PageTitle pageTitle={title} />
 			<ProductsGrid />
+			{asxs}
 		</>
 	);
 }
