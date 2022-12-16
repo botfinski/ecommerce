@@ -20,9 +20,12 @@ const Product: React.FC<Props> = ({ product }) => {
       height={300}
       sx={{
         display: "flex",
+        flexDirection: "column",
         background: "darkviolet",
         // "& > img": {
         //   maxWidth: "fit-content",
+
+        // https://www.youtube.com/watch?v=AA0epqPigJQ
         // },
       }}
     >

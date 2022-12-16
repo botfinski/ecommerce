@@ -1,30 +1,36 @@
-import React from "react"
-import { Box } from "@mui/material"
-import Head from "next/head"
-import Header from "../Header/Header"
-import Footer from "../Footer/Footer"
-import { Josefin_Sans } from "@next/font/google"
+import React from "react";
+import { Box } from "@mui/material";
+import Head from "next/head";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+// import { Josefin_Sans } from "@next/font/google";
 
 interface Props {
-  children: React.ReactNode
+	children: React.ReactNode;
 }
 
-export const josefinSans = Josefin_Sans({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-})
+// export const josefinSans = Josefin_Sans({
+// 	weight: ["400", "700"],
+// 	subsets: ["latin"],
+// });
 
 const Layout: React.FC<Props> = ({ children }) => {
-  return (
-    <Box>
-      <Head>
-        <title>Ecommerce</title>
-      </Head>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </Box>
-  )
-}
+	return (
+		<Box
+			sx={{
+				height: "100%",
+				display: "flex",
+				flexDirection: "column",
+			}}
+		>
+			<Head>
+				<title>Ecommerce</title>
+			</Head>
+			<Header />
+			<main>{children}</main>
+			<Footer />
+		</Box>
+	);
+};
 
-export default Layout
+export default Layout;
