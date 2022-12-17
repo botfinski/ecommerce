@@ -23,5 +23,5 @@ export interface IProduct {
 	longDescription: string;
 	reviews: string[];
 	details: string[];
-	photos: string[];
+	// photos: string[];
 }

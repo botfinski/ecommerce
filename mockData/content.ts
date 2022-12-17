@@ -1,27 +1,31 @@
+// import { products } from "./products";
 export const content = {
 	menuItems: [
 		{
 			text: "Home",
-			href: "#",
+			href: "",
 		},
 		{
 			text: "Pages",
-			href: "#",
+			href: "",
 		},
 		{
 			text: "Products",
-			href: "#",
+			href: "/products",
 		},
 		{
 			text: "Blog",
-			href: "#",
+			href: "",
 		},
 		{
 			text: "Contact",
-			href: "#",
+			href: "",
 		},
 	],
 	home: {
 		title: "Home",
+	},
+	products: {
+		title: "Products",
 	},
 };

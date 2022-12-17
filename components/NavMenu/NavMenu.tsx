@@ -34,7 +34,7 @@ const NavMenu: React.FC<Props> = ({ type }) => {
 			<ul>
 				{content.menuItems.map(item => (
 					<li key={item.text}>
-						<Link href={item.href}>{item.text}</Link>
+						<Link href={item.href ? `${item.href}` : "/"}>{item.text}</Link>
 					</li>
 				))}
 			</ul>

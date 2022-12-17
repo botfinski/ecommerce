@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { IProduct } from "../../types/types";
-// import Image from "next/image"
-import { styled } from "@mui/system";
+import Image from "next/image";
+import { styled, css } from "@mui/system";
 
 interface Props {
 	product: IProduct;
@@ -13,30 +13,72 @@ const Img = styled("img")`
 	max-height: 200px;
 `;
 
+const ProductName = styled(Typography)`
+	font-size: 18px;
+	font-weight: 700;
+	${props =>
+		css`
+			color: ${props.theme.palette.custom.pink};
+		`};
+`;
+
+const PriceWrapper = styled("div")`
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+`;
+
 const Product: React.FC<Props> = ({ product }) => {
-	const { name, price, previousPrice, colors, photos } = product;
+	const { name, price, previousPrice, colors, slug } = product;
+
+	const createImgUrl = (slug: string, colors: string[]) => {
+		return `${slug}-${colors[0].toLowerCase()}`;
+	};
+
 	return (
 		<Box
 			height={300}
 			sx={{
+				minHeight: 400,
 				display: "flex",
 				flexDirection: "column",
-				background: "darkviolet",
-				// "& > img": {
-				//   maxWidth: "fit-content",
-
-				// https://www.youtube.com/watch?v=AA0epqPigJQ
+				alignItems: "center",
+				boxShadow: "1px 1px 10px 2px rgb(0 0 0 / 11%)",
+				// "&:hover": {
+				// 	background: "#dcdcdc",
 				// },
 			}}
 		>
-			<Img src={photos[0]} alt="" />
-			<Typography align="center">{name}</Typography>
-			{colors.map(color => color)}
-			{previousPrice > 0 && (
-				<Typography align="center">{previousPrice}</Typography>
-			)}
+			<Image
+				width={250}
+				height={250}
+				src={`/images/products/${createImgUrl(slug, colors)}.png`}
+				alt={`Photo of ${name}`}
+			/>
 
-			<Typography align="center">{price}</Typography>
+			<Box
+				sx={{
+					width: "100%",
+					mt: "auto",
+					minHeight: 100,
+				}}
+			>
+				<ProductName align="center">{name}</ProductName>
+				{/* {colors.map(color => color)} */}
+				{previousPrice > 0 ? (
+					<PriceWrapper>
+						<Typography
+							align="center"
+							sx={{ color: "custom.pink", textDecoration: "line-through" }}
+						>
+							{`$ ${previousPrice}`}
+						</Typography>{" "}
+						<Typography align="center">{`$ ${price}`}</Typography>
+					</PriceWrapper>
+				) : (
+					<Typography align="center">{`$ ${price}`}</Typography>
+				)}
+			</Box>
 		</Box>
 	);
 };

@@ -27,6 +27,7 @@ export const theme = createTheme({
 		},
 		custom: {
 			white: "#fff",
+			pink: "#fb2e86",
 		},
 	},
 });
@@ -43,6 +44,7 @@ declare module "@mui/material/styles" {
 	interface PaletteOptions {
 		custom: {
 			white: React.CSSProperties["color"];
+			pink: React.CSSProperties["color"];
 		};
 	}
 }
