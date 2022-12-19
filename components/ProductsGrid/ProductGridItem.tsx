@@ -8,10 +8,10 @@ interface Props {
 	product: IProduct;
 }
 
-const Img = styled("img")`
-	display: block;
-	max-height: 200px;
-`;
+// const Img = styled("img")`
+// 	display: block;
+// 	max-height: 200px;
+// `;
 
 const ProductName = styled(Typography)`
 	font-size: 18px;
@@ -28,7 +28,7 @@ const PriceWrapper = styled("div")`
 	gap: 10px;
 `;
 
-const Product: React.FC<Props> = ({ product }) => {
+const ProductGridItem: React.FC<Props> = ({ product }) => {
 	const { name, price, previousPrice, colors, slug } = product;
 
 	const createImgUrl = (slug: string, colors: string[]) => {
@@ -83,4 +83,4 @@ const Product: React.FC<Props> = ({ product }) => {
 	);
 };
 
-export default Product;
+export default ProductGridItem;

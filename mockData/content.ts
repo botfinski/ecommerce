@@ -28,4 +28,20 @@ export const content = {
 	products: {
 		title: "Products",
 	},
+	productDetails: {
+		tabs: [
+			{
+				name: "Description",
+				id: "longDescription",
+			},
+			{
+				name: "Reviews",
+				id: "reviews",
+			},
+			{
+				name: "Details",
+				id: "details",
+			},
+		],
+	},
 };

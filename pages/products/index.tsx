@@ -2,10 +2,14 @@ import React from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import ProductsGrid from "../../components/ProductsGrid/ProductsGrid";
 import { content } from "../../mockData/content";
+import { productsData } from "../../mockData/products";
+import { IProduct } from "../../types/types";
 
-interface Props {}
+interface Props {
+	products: IProduct[];
+}
 
-const Products: React.FC<Props> = () => {
+const Products: React.FC<Props> = ({ products }) => {
 	const {
 		products: { title },
 	} = content;
@@ -13,9 +17,17 @@ const Products: React.FC<Props> = () => {
 	return (
 		<>
 			<PageTitle pageTitle={title} />
-			<ProductsGrid />
+			<ProductsGrid products={products} />
 		</>
 	);
 };
 
 export default Products;
+
+export const getStaticProps = async () => {
+	return {
+		props: {
+			products: productsData,
+		},
+	};
+};
