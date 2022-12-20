@@ -3,15 +3,12 @@ import { Box, Typography } from "@mui/material";
 import { IProduct } from "../../types/types";
 import Image from "next/image";
 import { styled, css } from "@mui/system";
+import { createImgUrl } from "../../helpers/helpers";
+import Price from "../Price/Price";
 
 interface Props {
 	product: IProduct;
 }
-
-// const Img = styled("img")`
-// 	display: block;
-// 	max-height: 200px;
-// `;
 
 const ProductName = styled(Typography)`
 	font-size: 18px;
@@ -22,18 +19,8 @@ const ProductName = styled(Typography)`
 		`};
 `;
 
-const PriceWrapper = styled("div")`
-	display: flex;
-	justify-content: center;
-	gap: 10px;
-`;
-
 const ProductGridItem: React.FC<Props> = ({ product }) => {
 	const { name, price, previousPrice, colors, slug } = product;
-
-	const createImgUrl = (slug: string, colors: string[]) => {
-		return `${slug}-${colors[0].toLowerCase()}`;
-	};
 
 	return (
 		<Box
@@ -64,20 +51,7 @@ const ProductGridItem: React.FC<Props> = ({ product }) => {
 				}}
 			>
 				<ProductName align="center">{name}</ProductName>
-				{/* {colors.map(color => color)} */}
-				{previousPrice > 0 ? (
-					<PriceWrapper>
-						<Typography
-							align="center"
-							sx={{ color: "custom.pink", textDecoration: "line-through" }}
-						>
-							{`$ ${previousPrice}`}
-						</Typography>{" "}
-						<Typography align="center">{`$ ${price}`}</Typography>
-					</PriceWrapper>
-				) : (
-					<Typography align="center">{`$ ${price}`}</Typography>
-				)}
+				<Price price={price} previousPrice={previousPrice} justify="center" />
 			</Box>
 		</Box>
 	);

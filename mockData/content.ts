@@ -44,4 +44,7 @@ export const content = {
 			},
 		],
 	},
+	404: {
+		title: "404",
+	},
 };

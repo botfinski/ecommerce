@@ -15,6 +15,10 @@ export const theme = createTheme({
 			fontSize: 22,
 			fontWeight: 700,
 		},
+		h3: {
+			fontSize: 22,
+			fontWeight: 700,
+		},
 	},
 	palette: {
 		primary: {

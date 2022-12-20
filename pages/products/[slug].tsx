@@ -1,3 +1,4 @@
+import { Box, Container } from "@mui/material";
 import React from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import ProcuctDetails from "../../components/ProductDetails/ProductDetails";
@@ -12,7 +13,9 @@ const Product: React.FC<Props> = ({ product }) => {
 	return (
 		<>
 			<PageTitle pageTitle={product.name} />
-			<ProcuctDetails key={product.slug} product={product} />
+			<Box sx={{ mt: 10, mb: 10 }}>
+				<ProcuctDetails key={product.slug} product={product} />
+			</Box>
 		</>
 	);
 };
