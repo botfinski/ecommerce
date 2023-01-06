@@ -16,7 +16,7 @@ export interface IProduct {
 	slug: string;
 	price: number;
 	previousPrice: number;
-	colors: string[];
+	colors: { id: number; name: string; url: string }[];
 	quantity: number;
 	rating: number;
 	shortDescription: string;

@@ -1,5 +1,5 @@
 import React from "react";
-import { styled, css } from "@mui/system";
+import { styled } from "@mui/system";
 import { Box, Typography } from "@mui/material";
 
 interface Props {
@@ -16,21 +16,24 @@ const PriceWrapper = styled(Box)<WrapperProps>`
 	display: flex;
 	justify-content: ${props => (props.justify ? props.justify : "start")};
 	gap: 10px;
+	margin-bottom: 1rem;
+	& > p {
+		font-size: 2rem;
+	}
 `;
 
 const Price: React.FC<Props> = ({ previousPrice, price, justify }) => {
 	return previousPrice > 0 ? (
 		<PriceWrapper justify={justify}>
-			<Typography
-				align="center"
-				sx={{ color: "custom.pink", textDecoration: "line-through" }}
-			>
+			<Typography sx={{ color: "custom.pink", textDecoration: "line-through" }}>
 				{`$ ${previousPrice}`}
 			</Typography>{" "}
-			<Typography align="center">{`$ ${price}`}</Typography>
+			<Typography>{`$ ${price}`}</Typography>
 		</PriceWrapper>
 	) : (
-		<Typography align="center">{`$ ${price}`}</Typography>
+		<PriceWrapper justify={justify}>
+			<Typography>{`$ ${price}`}</Typography>
+		</PriceWrapper>
 	);
 };
 

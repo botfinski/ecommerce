@@ -25,7 +25,7 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
 			>
 				{products.map((product: IProduct) => (
 					<Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-						<Link href={`/products/${product.slug}`}>
+						<Link href={`/products/${product.colors[0].url}`}>
 							<ProductGridItem product={product} />
 						</Link>
 					</Grid>

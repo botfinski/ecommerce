@@ -1,16 +1,18 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import { IProduct } from "../../types/types";
 import Tabs from "../Tabs/Tabs";
-import { createImgUrl } from "../../helpers/helpers";
 import Price from "../Price/Price";
+import { Colors } from "./Colors";
 interface Props {
 	product: IProduct;
 }
 
 const ProcuctDetails: React.FC<Props> = ({ product }) => {
-	// console.log(product);
+	const router = useRouter();
+
 	const {
 		name,
 		rating,
@@ -21,18 +23,17 @@ const ProcuctDetails: React.FC<Props> = ({ product }) => {
 		longDescription,
 		reviews,
 		details,
-		slug,
 	} = product;
 
 	return (
 		<>
 			<Container maxWidth="xl">
 				<Grid container>
-					<Grid item xs={12} md={6}>
+					<Grid container item xs={12} md={6} justifyContent="center">
 						<Image
-							width={250}
-							height={250}
-							src={`/images/products/${createImgUrl(slug, colors)}.png`}
+							width={350}
+							height={350}
+							src={`/images${router.asPath}.png`}
 							alt={`Photo of ${name}`}
 							priority
 						/>
@@ -42,13 +43,9 @@ const ProcuctDetails: React.FC<Props> = ({ product }) => {
 						<Typography variant="h3">{name}</Typography>
 						<Typography>Rating: {rating}</Typography>
 						<br />
-						<Typography></Typography>
 						<Price price={price} previousPrice={previousPrice} />
-
-						{colors.map(c => (
-							<Typography key={c}>{c}</Typography>
-						))}
-						<Typography>{shortDescription}</Typography>
+						<Colors colors={colors} />
+						<Typography sx={{ mt: 4, mb: 4 }}>{shortDescription}</Typography>
 						<Button variant="outlined">Add to Cart</Button>
 					</Grid>
 				</Grid>

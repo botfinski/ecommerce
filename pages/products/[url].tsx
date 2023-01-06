@@ -23,9 +23,15 @@ const Product: React.FC<Props> = ({ product }) => {
 export default Product;
 
 export const getStaticPaths = async () => {
-	const paths = productsData.map(product => ({
-		params: { slug: product.slug },
-	}));
+	const paths = productsData
+		.map(product =>
+			product.colors.map(colors => ({
+				params: {
+					url: colors.url,
+				},
+			}))
+		)
+		.flat();
 
 	return {
 		paths,
@@ -34,8 +40,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }: any) => {
-	const product = productsData.filter(
-		product => product.slug === params.slug
+	const product = productsData.filter(product =>
+		product.colors.find(color => color.url === params.url)
 	)[0];
 
 	return {
