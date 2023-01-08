@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { CartContext } from "../../context/CartContext";
 
 interface Props {}
 
 const Cart: React.FC<Props> = () => {
+	const { items, totalPrice } = useContext(CartContext);
+
 	return (
 		<IconButton
 			sx={{
@@ -12,6 +15,9 @@ const Cart: React.FC<Props> = () => {
 			}}
 		>
 			<ShoppingCartOutlinedIcon />
+			{items.length}
+			{"/"}
+			{totalPrice}
 		</IconButton>
 	);
 };

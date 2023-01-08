@@ -9,17 +9,17 @@ export const productsData: IProduct[] = [
 		previousPrice: 299.99,
 		colors: [
 			{
-				id: 0,
+				id: "wooden-table-000",
 				name: "Gray",
 				url: "wooden-table-gray",
 			},
 			{
-				id: 1,
+				id: "wooden-table-001",
 				name: "Blue",
 				url: "wooden-table-blue",
 			},
 			{
-				id: 2,
+				id: "wooden-table-002",
 				name: "Yellow",
 				url: "wooden-table-yellow",
 			},
@@ -52,17 +52,17 @@ export const productsData: IProduct[] = [
 		previousPrice: 699.99,
 		colors: [
 			{
-				id: 0,
+				id: "leather-sofa-000",
 				name: "Beige",
 				url: "leather-sofa-beige",
 			},
 			{
-				id: 1,
+				id: "leather-sofa-001",
 				name: "Blue",
 				url: "leather-sofa-blue",
 			},
 			{
-				id: 2,
+				id: "leather-sofa-002",
 				name: "Yellow",
 				url: "leather-sofa-yellow",
 			},
@@ -95,27 +95,27 @@ export const productsData: IProduct[] = [
 		previousPrice: 0,
 		colors: [
 			{
-				id: 0,
+				id: "recliner-chair-000",
 				name: "Green",
 				url: "recliner-chair-green",
 			},
 			{
-				id: 1,
+				id: "recliner-chair-001",
 				name: "Blue",
 				url: "recliner-chair-blue",
 			},
 			{
-				id: 2,
+				id: "recliner-chair-002",
 				name: "Brown",
 				url: "recliner-chair-brown",
 			},
 			{
-				id: 3,
+				id: "recliner-chair-003",
 				name: "Orange",
 				url: "recliner-chair-orange",
 			},
 			{
-				id: 4,
+				id: "recliner-chair-004",
 				name: "Red",
 				url: "recliner-chair-red",
 			},

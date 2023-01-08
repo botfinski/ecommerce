@@ -24,7 +24,7 @@ export const Colors: React.FC<Props> = ({ colors }) => {
 				<Typography>Available colors:</Typography>
 				{colors.map((color: any) => {
 					return (
-						<li>
+						<li key={color.name}>
 							<Link href={color.url} key={color.id}>
 								{color.name}
 							</Link>

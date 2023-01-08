@@ -1,19 +1,22 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
 import { IProduct } from "../../types/types";
 import Tabs from "../Tabs/Tabs";
 import Price from "../Price/Price";
 import { Colors } from "./Colors";
+import { CartContext } from "../../context/CartContext";
 interface Props {
 	product: IProduct;
 }
 
 const ProcuctDetails: React.FC<Props> = ({ product }) => {
 	const router = useRouter();
+	const { addToCart } = useContext(CartContext);
 
 	const {
+		id,
 		name,
 		rating,
 		price,
@@ -25,6 +28,8 @@ const ProcuctDetails: React.FC<Props> = ({ product }) => {
 		details,
 	} = product;
 
+	const selectedColor = colors.find(color => color.url === router.query.url);
+
 	return (
 		<>
 			<Container maxWidth="xl">
@@ -34,19 +39,26 @@ const ProcuctDetails: React.FC<Props> = ({ product }) => {
 							width={350}
 							height={350}
 							src={`/images${router.asPath}.png`}
-							alt={`Photo of ${name}`}
+							alt={`Photo of ${selectedColor?.name} ${name}`}
 							priority
 						/>
 					</Grid>
 
 					<Grid item xs={12} md={6}>
-						<Typography variant="h3">{name}</Typography>
+						<Typography variant="h3">
+							{selectedColor?.name} {name}
+						</Typography>
 						<Typography>Rating: {rating}</Typography>
 						<br />
 						<Price price={price} previousPrice={previousPrice} />
 						<Colors colors={colors} />
 						<Typography sx={{ mt: 4, mb: 4 }}>{shortDescription}</Typography>
-						<Button variant="outlined">Add to Cart</Button>
+						<Button
+							variant="outlined"
+							onClick={() => addToCart(id, price, selectedColor!.id)}
+						>
+							Add to Cart
+						</Button>
 					</Grid>
 				</Grid>
 				<Box>
