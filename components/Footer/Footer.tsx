@@ -6,7 +6,7 @@ interface Props {}
 
 const Footer: React.FC<Props> = () => {
 	return (
-		<>
+		<footer>
 			<Box
 				sx={{
 					backgroundColor: "primary.100",
@@ -67,7 +67,7 @@ const Footer: React.FC<Props> = () => {
 					</ul>
 				</Container>
 			</Box>
-		</>
+		</footer>
 	);
 };
 
