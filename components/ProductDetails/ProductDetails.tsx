@@ -55,7 +55,9 @@ const ProcuctDetails: React.FC<Props> = ({ product }) => {
 						<Typography sx={{ mt: 4, mb: 4 }}>{shortDescription}</Typography>
 						<Button
 							variant="outlined"
-							onClick={() => addToCart(id, price, selectedColor!.id)}
+							onClick={() =>
+								addToCart(id, name, price, selectedColor!.id, selectedColor!.name)
+							}
 						>
 							Add to Cart
 						</Button>

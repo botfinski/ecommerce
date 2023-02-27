@@ -47,4 +47,7 @@ export const content = {
 	404: {
 		title: "404",
 	},
+	cart: {
+		title: "Cart",
+	},
 };

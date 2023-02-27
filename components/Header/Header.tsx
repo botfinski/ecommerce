@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Container } from "@mui/material";
 import NavMenu from "../NavMenu/NavMenu";
-import Cart from "../Cart/Cart";
+import CartIcon from "../CartIcon/CartIcon";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 interface Props {}
@@ -48,7 +48,7 @@ const Header: React.FC<Props> = () => {
 					>
 						Account
 					</Button>
-					<Cart />
+					<CartIcon />
 				</Container>
 			</Box>
 			<Container maxWidth="xl">

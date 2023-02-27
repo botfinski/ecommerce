@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Head from "next/head";
 import Header from "../Header/Header";
@@ -15,21 +15,25 @@ interface Props {
 // });
 
 const Layout: React.FC<Props> = ({ children }) => {
+	// const [cartOpened, setCartOpened] = useState(false);
+
 	return (
-		<Box
-			sx={{
-				height: "100%",
-				display: "flex",
-				flexDirection: "column",
-			}}
-		>
+		<>
 			<Head>
 				<title>Ecommerce</title>
 			</Head>
-			<Header />
-			<main>{children}</main>
-			<Footer />
-		</Box>
+			<Box
+				sx={{
+					height: "100%",
+					display: "flex",
+					flexDirection: "column",
+				}}
+			>
+				<Header />
+				<main>{children}</main>
+				<Footer />
+			</Box>
+		</>
 	);
 };
 

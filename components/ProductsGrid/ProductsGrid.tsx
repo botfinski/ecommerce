@@ -3,7 +3,7 @@ import { IProduct } from "../../types/types";
 import { Container, Typography, Grid } from "@mui/material";
 import ProductGridItem from "./ProductGridItem";
 import Link from "next/link";
-import Sorting from "./Sorting";
+// import Sorting from "./Sorting";
 
 interface Props {
 	products: IProduct[];
@@ -13,7 +13,7 @@ const ProductsGrid: React.FC<Props> = ({ products }) => {
 	return (
 		<Container maxWidth="xl">
 			<Typography variant="h2">Product list grid</Typography>
-			<Sorting />
+			{/* <Sorting /> */}
 
 			<Grid
 				container
